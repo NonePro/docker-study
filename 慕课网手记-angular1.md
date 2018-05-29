@@ -8,7 +8,7 @@
 
 我们以MAC为例，请安装好Docker
 
-```
+```bash
 docker version
 Client:
  Version:      18.03.1-ce
@@ -37,7 +37,7 @@ Server:
 
 我们这个image里安装好了Angular CLI，所以如果我们要创建一个叫做 ``demo`` 的project，在本地目录 ``/Users/penxiao/tmp/angular-docker`` 目录里，可以运行如下命令。
 
-```
+```bash
 $ docker run --rm -it -v /Users/penxiao/tmp/angular-docker:/app xiaopeng163/angular-docker ng new demo
 ```
 
@@ -45,7 +45,7 @@ $ docker run --rm -it -v /Users/penxiao/tmp/angular-docker:/app xiaopeng163/angu
 
 产生的project在本地如下所示。
 
-```
+```bash
 $ ls
 demo
 $ cd demo
@@ -61,7 +61,7 @@ README.md         angular.json      e2e               node_modules      package-
 
 等我们开发到一定程度以后，可以非常方便的通过 ``ng serve`` 去预览我们的项目, 注意本地Volume选择demo project的目录 ``/Users/penxiao/tmp/angular-docker/demo`` 
 
-```
+```bash
 $ docker run -d --rm --name=angular-demo -it -v /Users/penxiao/tmp/angular-docker/demo:/app -p 4200:4200 xiaopeng163/angular-docker ng serve --host=0.0.0.0
 42cadd81f28e1705ce20edcdc42a765f5dcb1d5181c4222548a984cfd37e3a95
 $ docker ps
@@ -78,7 +78,7 @@ CONTAINER ID        IMAGE                        COMMAND                  CREATE
 
 如果我们修改了 ``package-lock.json package.json`` 我们可以通过npm install去安装，
 
-```
+```bash
 $ docker run --rm -it -v /Users/penxiao/tmp/angular-docker/demo:/app xiaopeng163/angular-docker npm install
 npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.4 (node_modules/fsevents):
 npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.4: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
