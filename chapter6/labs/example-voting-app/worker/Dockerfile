@@ -1,9 +1,12 @@
 FROM java:7
+#换源
+ADD sources.list  /etc/apt/sources.list
 
 RUN apt-get update -qq && apt-get install -y maven && apt-get clean
 
 WORKDIR /code
 
+ADD settings.xml /etc/maven/settings.xml
 ADD pom.xml /code/pom.xml
 RUN ["mvn", "dependency:resolve"]
 RUN ["mvn", "verify"]
