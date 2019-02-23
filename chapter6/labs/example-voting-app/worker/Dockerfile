@@ -1,4 +1,4 @@
-FROM java:7
+FROM java:8
 #换源
 ADD sources.list  /etc/apt/sources.list
 
