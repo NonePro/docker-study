@@ -1,6 +1,4 @@
 FROM java:8
-#换源
-ADD sources.list  /etc/apt/sources.list
 
 RUN apt-get update -qq && apt-get install -y maven && apt-get clean
 
