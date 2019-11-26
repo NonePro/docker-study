@@ -1,6 +1,4 @@
-FROM java:8
-
-RUN apt-get update -qq && apt-get install -y maven && apt-get clean
+FROM maven:3.5-jdk-8-alpine
 
 WORKDIR /code
 
